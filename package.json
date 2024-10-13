@@ -12,7 +12,8 @@
     "prisma:migrate": "dotenv -e .env.local -- prisma migrate dev --name ''",
     "prisma:studio": "dotenv -e .env.local -- prisma studio",
     "prisma:migrate:prod": "dotenv -e .env.local -- prisma migrate deploy",
-    "shadcn": "npx shadcn@latest add"
+    "shadcn": "npx shadcn@latest add",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.6.0",
