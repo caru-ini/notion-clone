@@ -49,6 +49,7 @@ model User {
   email         String?   @unique
   emailVerified DateTime? @map("email_verified")
   image         String?
+  documents     Document[]
   accounts      Account[]
   sessions      Session[]
  
@@ -63,3 +64,26 @@ model VerificationToken {
   @@unique([identifier, token])
   @@map("verification_tokens")
 }
+
+model Document {
+  id String @id @default(cuid())
+  title String
+  userId String @map("user_id")
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  isArchived Boolean @default(false)
+  parentDocumentId String?
+  parentDocument Document? @relation("ParentDocuments", fields: [parentDocumentId], references: [id], onDelete: Cascade)
+  content String?
+  coverImage String?
+  icon String?
+  isPublished Boolean @default(false)
+  isDeleted Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("documents")
+  @@index([userId])
+  @@index([userId,parentDocumentId])
+  Document Document[] @relation("ParentDocuments")
+}
+
