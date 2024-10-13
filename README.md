@@ -1,89 +1,81 @@
-# Next.js Auth.js Template
+# Notion Clone
 
-This project is a web application template with authentication features, using Next.js 14 and Auth.js. It incorporates modern web development best practices, enabling rapid development initiation.
+This is a Notion clone project built using Next.js, Postgres, Auth.js, and Hono. The database, authentication, and API are implemented from scratch.
 
-## Key Features
+## Demo
 
-- **Next.js 14(App Router)**: Utilizing the latest React framework
-- **Auth.js**: Easy implementation of a secure authentication system
-- **Prisma**: Efficient database operations with a type-safe ORM
-- **PostgreSQL**: Reliable relational database
-- **Tailwind CSS**: Customizable utility-first CSS framework
-- **shadcn/ui**: Reusable UI components
-- **Docker**: Simple development environment setup
+https://notion-clone.caru.live/
 
-## Setup Instructions
+## Features
 
-1. Clone the repository
+- User authentication using Auth.js
+- Database powered by Postgres
+- API built with Hono
+- UI components and styling inspired by Notion
 
-   ```bash
-   git clone https://github.com/your-username/next-authjs-template.git
-   cd next-authjs-template
+## Getting Started
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/caru-ini/notion-clone.git
    ```
 
-   or using GitHub CLI
+   or
 
-   ```bash
-   gh repo create <your-repo-name> --template https://github.com/caru-ini/next-authjs-template --clone
+   ```sh
+   gh repo clone caru-ini/notion-clone
    ```
 
-2. Install dependencies:
+2. Install the dependencies:
 
-   ```bash
-   pnpm i
+   ```sh
+   cd notion-clone
+   pnpm install
    ```
 
-3. Generate auth.js secret
+3. Set up authentication:
 
-   ```bash
-   pnpm dlx auth@latest secret
+   ```sh
+   pnpm dlx auth secret
    ```
 
-4. Set up environment variables:
-   Create a `.env.local` file and set the necessary environment variables:
+   - Environment variable is automatically set in `.env` file.
 
-   ```env
-   AUTH_SECRET=your_auth_secret # already generated
+   - Get GitHub OAuth credentials from [GitHub Developer Settings](https://github.com/settings/applications) and set them in `.env` file.
 
-   DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres?schema=public"
-   AUTH_GITHUB_ID=your_github_id
-   AUTH_GITHUB_SECRET=your_github_secret
+4. Set up the database:
+
+   ```sh
+   docker compose up -d
    ```
 
-5. Set up the database:
+   - Copy the `.env.example` file to `.env` and update the database connection details.
 
-   ```bash
-   docker-compose up -d
+   ```sh
+   cp .env.example .env
    ```
 
-6. Run Prisma migrations:
+   - Run Prisma migrations:
 
-   ```bash
+   ```sh
    pnpm prisma:migrate
    ```
 
-7. Start the development server:
+5. Run the development server:
 
-   ```bash
+   ```sh
    pnpm dev
    ```
 
-8. Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+6. Open your browser and navigate to `http://localhost:3000` to see the application and enjoy!
 
-## Technologies Used
+## Acknowledgements
 
-- [Next.js](https://nextjs.org/)
-- [Auth.js](https://authjs.dev/)
-- [Prisma](https://www.prisma.io/)
-- [PostgreSQL](https://www.postgresql.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [shadcn/ui](https://ui.shadcn.com/)
-- [Docker](https://www.docker.com/)
+- This project was inspired by the tutorial video: [Build a Notion Clone with Next.js, Tailwind, and React](https://www.youtube.com/watch?v=0OaDyjB9Ib8)
 
-## License
+- The project structure is based on the [caru-ini/next-authjs-template](https://github.com/caru-ini/next-authjs-template) template
 
-This project is released under the MIT License. See the [LICENSE](LICENSE) file for details.
+## :warning: Disclaimer
 
-## Support
-
-If you have any questions or need assistance, please open an issue or contact the project maintainer directly.
+This project is made for educational purposes. Content of this project is not affiliated with Notion.
