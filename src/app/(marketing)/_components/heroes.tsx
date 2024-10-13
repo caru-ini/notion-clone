@@ -6,10 +6,16 @@ export const Heroes = () => {
       <div className={"flex items-center"}>
         <div className={"relative size-[300px] sm:size-[350px] md:size-[400px]"}>
           <Image
-            src={"/hero-illustration.png"}
-            className={"object-contain dark:invert"}
+            src={"/reading.png"}
+            className={"object-contain dark:hidden"}
             fill
-            alt={"Hero Illustration"}
+            alt={"Reading"}
+          />
+          <Image
+            src={"/reading-dark.png"}
+            className={"hidden object-contain dark:block"}
+            fill
+            alt={"Reading"}
           />
         </div>
       </div>

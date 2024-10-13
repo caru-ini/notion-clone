@@ -29,12 +29,13 @@ const DocumentPage = () => {
 
   return (
     <div className={"flex h-full flex-col items-center justify-center space-y-4"}>
+      <Image src={"empty.png"} alt={"Empty"} width={1000} height={760} className={"dark:hidden"} />
       <Image
-        src={"/hero-illustration.png"}
+        src={"empty-dark.png"}
         alt={"Empty"}
         width={1000}
         height={760}
-        className={"dark:invert"}
+        className={"hidden dark:block"}
       />
       <h2 className={"text-lg font-medium"}>Welcome to {session?.user?.name}&apos;s Notion</h2>
       <Button onClick={onCreate}>
